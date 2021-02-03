@@ -66,5 +66,8 @@ export default {
 </script>
 
 <style>
-
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>
