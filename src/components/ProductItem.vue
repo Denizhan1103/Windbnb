@@ -24,6 +24,7 @@ export default {
   .product-item {
     width: 400px;
     margin-right: 30px;
+    cursor: pointer;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -33,7 +34,7 @@ export default {
       width: 100%;
       background-size: cover !important;
       border-radius: 24px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     &__data {
@@ -54,5 +55,22 @@ export default {
         border: 1px solid #4F4F4F;
         border-radius: 12px;
       }
-    }
+
+      &-construct {
+        font-weight: 500;
+        font-size: 14px;
+        color: #828282;
+      }
+
+      &-star {
+        font-weight: 500;
+        font-size: 14px;
+      }
+  }
+
+  .data__down {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+  }
 </style>
