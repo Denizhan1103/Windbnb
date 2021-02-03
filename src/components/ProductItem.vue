@@ -1,6 +1,6 @@
 <template>
   <div class="product-item">
-    <div class="product-item__image"></div>
+    <div class="product-item__image" :style="'background: url('+detail.image+')'"></div>
     <div class="product__item-data">
       <div class="data__up">
         <div class="data__up-type">{{detail.type}}</div>
@@ -14,12 +14,33 @@
 
 <script>
 export default {
-  prop: {
+  props: {
     detail: Object
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .product-item {
+    width: 270px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
 
+    &__image {
+      height: 395px;
+      width: 100%;
+    }
+
+    &__data {
+      display: flex;
+      flex-direction: column;
+
+      .data__up {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
 </style>
