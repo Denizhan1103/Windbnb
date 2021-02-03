@@ -1,5 +1,9 @@
 <template>
   <div class="product-list">
+    <div class="product-list__loc">
+      <p class="product-list__loc-title">Stays in {{location}}</p>
+      <p class="product-list__loc-number">{{stays}}+ stays</p>
+    </div>
     <ProductItem v-for="(item,index) in list" :key="index" :detail="item"/>
   </div>
 </template>
@@ -10,6 +14,8 @@ export default {
   components: { ProductItem },
   data() {
     return {
+      location: "Finland",
+      stays: 12,
       list: [ 
         {
           name: 'Stylist apartment in center of the city',
@@ -65,9 +71,29 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .product-list {
     display: flex;
+    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
+
+    &__loc {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      &-title {
+        font-weight: bold;
+        font-size: 24px;
+        color: #333333;
+      }
+
+      &-number {
+        font-weight: 500;
+        font-size: 14px;
+        color: #4F4F4F;
+      }
+    }
   }
 </style>

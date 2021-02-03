@@ -1,7 +1,9 @@
 <template>
-  <Header/>
-  <ProductList/>
-  <Footer/>
+  <div class="container">
+    <Header/>
+    <ProductList/>
+    <Footer/>
+  </div>
 </template>
 
 <script>
@@ -17,3 +19,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+</style>
