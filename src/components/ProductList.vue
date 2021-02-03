@@ -1,9 +1,13 @@
 <template>
-  <div class="product-list"></div>
+  <div class="product-list">
+    <ProductItem v-for="(item,index) in list" :key="index" :detail="item"/>
+  </div>
 </template>
 
 <script>
+import ProductItem from './ProductItem.vue'
 export default {
+  components: { ProductItem },
   data() {
     return {
       list: [ 
