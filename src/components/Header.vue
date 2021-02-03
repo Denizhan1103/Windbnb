@@ -26,10 +26,10 @@ export default {
         justify-content: space-around;
         align-items: center;
         height: 100px;
+        max-width: 1600px;
 
         &__logo {
             display: flex;
-            justify-content: center;
             align-items: center;
             flex: 1;
 
@@ -51,6 +51,8 @@ export default {
 
         &__search {
             flex: 5;
+            display: flex;
+            justify-content: flex-end;
         }
     }
 </style>
