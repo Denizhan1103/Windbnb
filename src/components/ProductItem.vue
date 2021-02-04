@@ -22,8 +22,7 @@ export default {
 
 <style lang="scss" scoped>
   .product-item {
-    width: 400px;
-    margin-right: 30px;
+    width: 100%;
     cursor: pointer;
     margin-bottom: 50px;
     display: flex;

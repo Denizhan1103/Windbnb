@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="container">
+      <Search/>
       <Header/>
       <ProductList/>
       <Footer/>
-      <Search/>
     </div>
   </div>
 </template>
