@@ -1,31 +1,31 @@
 <template>
-    <div class="search-bar">
+    <div class="search-bar" v-show="open">
       <div class="search-bar__searching">
-        <div class="search-bar__searching-loc">
+        <div class="search-bar__searching-loc" @click="type = 'location'">
           <div class="search-bar__searching-loc-title">Location</div>
           <div class="search-bar__searching-loc-add">Helsinki, Finland</div>
         </div>
-        <div class="search-bar__searching-quest">
+        <div class="search-bar__searching-quest" @click="type = 'quest'">
           <div class="search-bar__searching-quest-title">Guest</div>
           <div class="search-bar__searching-quest-add">Add guests</div>
         </div>
         <div class="search-bar__searching-button">Search</div>
       </div>
       <div class="search-bar__list">
-          <div class="search-bar__list-location">
+          <div class="search-bar__list-location" :class="{'search-bar--hide' : type != 'location'}">
               <div class="search-bar__list-location-item">Helsinki, Finland</div>
               <div class="search-bar__list-location-item">Turku, Finland</div>
               <div class="search-bar__list-location-item">Oulu, Finland</div>
               <div class="search-bar__list-location-item">Vaasa, Finland</div>
           </div>
-          <div class="search-bar__list-quest">
+          <div class="search-bar__list-quest" :class="{'search-bar--hide' : type != 'quest'}">
               <div class="adults">
                   <div class="adults__title">Adults</div>
                   <div class="adults__subtitle">Ages 13 or above</div>
                   <div class="adults__number">
                       <div class="adults__number-minus">-</div>
                       <div class="adults__number-data">0</div>
-                      <div class="adults__number-plus"></div>
+                      <div class="adults__number-plus">+</div>
                   </div>
               </div>
               <div class="childrens">
@@ -34,25 +34,60 @@
                   <div class="childrens__number">
                       <div class="childrens__number-minus">-</div>
                       <div class="childrens__number-data">0</div>
-                      <div class="childrens__number-plus"></div>
+                      <div class="childrens__number-plus">+</div>
                   </div>
               </div>
           </div>
       </div>
+      <div class="search-bar__shadow" @click="hideSearch">s </div>
     </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      type: "location"
+    }
+  },
 
+  props: {
+    open: Boolean
+  },
+  methods: {
+    hideSearch() {
+      this.$emit("hide")
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+
 .search-bar {
     width: 100%;
-    display: flex;
     flex-direction: column;
+    z-index: 99;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0 0 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+
+    &--hide {
+      visibility: hidden;
+    }
+
+    &__shadow {
+      width: 100%;
+      height: 900px;
+      background-color:gray;
+      opacity: 0.1;
+      padding: 0 !important;
+    }
 
     &__searching {
       box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
@@ -61,6 +96,7 @@ export default {
       display: flex;
       justify-content: space-between;
       height: 40px;
+      padding: 20px;
 
       &-loc {
         flex: 1;
@@ -99,6 +135,7 @@ export default {
         margin-right: 10px;
         padding: 0 10px;
         border-radius: 16px;
+    
 
         &:hover {
             border: 1px solid #333333;
@@ -135,6 +172,7 @@ export default {
     &__list {
         display: flex;
         width: 100%;
+        padding: 0 20px;
 
         &-location {
             flex: 1;
