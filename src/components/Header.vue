@@ -26,7 +26,7 @@ export default {
         justify-content: space-around;
         align-items: center;
         height: 100px;
-        max-width: 1600px;
+        width: 100%;
 
         &__logo {
             display: flex;

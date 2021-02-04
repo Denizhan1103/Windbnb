@@ -21,6 +21,7 @@ export default {
     height: 55px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
+    cursor: pointer;
 
     &__loc {
       font-size: 14px;
