@@ -1,8 +1,11 @@
 <template>
-  <div class="container">
-    <Header/>
-    <ProductList/>
-    <Footer/>
+  <div id="app">
+    <div class="container">
+      <Header/>
+      <ProductList/>
+      <Footer/>
+      <Search/>
+    </div>
   </div>
 </template>
 
@@ -10,12 +13,14 @@
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import ProductList from "./components/ProductList.vue"
+import Search from "./components/Search.vue"
 
 export default {
   components: {
       Header,
       Footer,
-      ProductList
+      ProductList,
+      Search
   }
 }
 </script>
@@ -26,5 +31,12 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    max-width: 1400px !important;
   } 
+
+  #app {
+    display: flex;
+    justify-content: center;
+  }
 </style>
