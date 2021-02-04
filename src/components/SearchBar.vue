@@ -1,17 +1,41 @@
 <template>
-  <div class="search">
+  <Search :open="show" @hide="hideSearch" />
+  <div class="search" @click="showSearch">
     <div class="search__loc">Helsinki, Finland</div>
     <div class="search__bar">Add quest</div>
   </div>
 </template>
 
 <script>
-export default {
+import Search from './Search.vue'
 
+export default {
+  components: {
+    Search 
+  },
+  data() {
+    return {
+      show: false
+    }
+  },
+  props: {
+  },
+  methods: {
+    showSearch() {
+      this.show = true
+    },
+
+    hideSearch() {
+      this.show = false
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+  .search-bar--open {
+    display: flex;
+  }
   .search {
     display: flex;
     justify-content: space-between;
