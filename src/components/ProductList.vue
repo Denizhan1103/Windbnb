@@ -4,7 +4,9 @@
       <p class="product-list__loc-title">Stays in {{location}}</p>
       <p class="product-list__loc-number">{{stays}}+ stays</p>
     </div>
-    <ProductItem v-for="(item,index) in list" :key="index" :detail="item"/>
+    <div class="product-list__item">
+      <ProductItem v-for="(item,index) in list" :key="index" :detail="item"/>
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ export default {
     return {
       location: "Finland",
       stays: 12,
+      locList: ["Helsinki","Turku","Oulu","Vaasa"],
       list: [ 
         {
           name: 'Stylist apartment in center of the city',
@@ -94,6 +97,13 @@ export default {
         font-size: 14px;
         color: #4F4F4F;
       }
+    }
+
+    &__item {
+      display: grid;
+      width: 100%;
+      //grid-template-areas: "list-item list-item list-item";
+      grid-template-columns: repeat(3, minmax(300px, 1fr));
     }
   }
 </style>
