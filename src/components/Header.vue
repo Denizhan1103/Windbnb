@@ -2,7 +2,6 @@
   <div class="header">
       <div class="header__logo">
             <img src="../assets/logo.png" alt="Windbnb Logo" class="header__logo-image">
-            <p class="header__logo-title">Windbnb</p>
       </div>
       <div class="header__search">
           <SearchBar/>
@@ -34,18 +33,9 @@ export default {
             flex: 1;
 
             &-image {
-                height: 20px;
-                width: 20px;
+                height: 28px;
+                width: 100px;
                 margin-right: 3px;
-            }
-
-            &-title {
-                font-family: Poppins;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 21px;
-                color: #EB5757;
             }
         }
 
