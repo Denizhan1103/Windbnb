@@ -3,9 +3,13 @@
     <div class="product-item__image" :style="'background: url('+detail.image+')'"></div>
     <div class="product__item-data">
       <div class="data__up">
-        <div class="data__up-type">{{detail.type}}</div>
-        <div class="data__up-construct">{{detail.construct}}</div>
-        <div class="data__up-star">{{detail.star}}</div>
+        <div class="data__up-type">
+          <div class="data__up-type-item">{{detail.type}}</div>
+          <div class="data__up-construct">{{detail.construct}}</div>
+        </div>
+        <div class="data__up-item">
+          <div class="data__up-star">{{detail.star}}</div>
+        </div>
       </div>
       <p class="data__down">{{detail.name}}</p>
     </div>
@@ -45,26 +49,35 @@ export default {
   .data__up {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-      &-type {
-        font-weight: bold;
-        font-size: 16px;
-        color: #4F4F4F;
-        padding: 2px 10px;
-        border: 1px solid #4F4F4F;
-        border-radius: 12px;
+    &-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &-item {
+          font-weight: bold;
+          font-size: 16px;
+          color: #4F4F4F;
+          padding: 2px 10px;
+          border: 1px solid #4F4F4F;
+          border-radius: 12px;
+          margin-right: 10px;
       }
 
-      &-construct {
-        font-weight: 500;
-        font-size: 14px;
-        color: #828282;
-      }
+    }
 
-      &-star {
-        font-weight: 500;
-        font-size: 14px;
-      }
+    &-construct {
+      font-weight: 500;
+      font-size: 14px;
+      color: #828282;
+    }
+
+    &-star {
+      font-weight: 500;
+      font-size: 14px;
+    }
   }
 
   .data__down {
