@@ -2,7 +2,10 @@
   <Search :open="show" @hide="hideSearch" />
   <div class="search" @click="showSearch">
     <div class="search__loc">Helsinki, Finland</div>
-    <div class="search__bar">Add quest</div>
+    <div class="search__bar">
+      <p class="search__bar-title">Add quest</p>
+      <i class="search__bar-icon fas fa-search"></i>
+    </div>
   </div>
 </template>
 
@@ -53,8 +56,21 @@ export default {
     }
 
     &__bar {
-      font-size: 14px;
-      color: #BDBDBD;
+      display: flex;
+      align-items: center;
+
+      &-title {
+        font-size: 14px;
+        color: #BDBDBD;
+        margin-right: 30px;
+      }
+
+      &-icon {
+        height: 14px;
+        width: 14px;
+        font-size: 14px;
+        color: #EB5757;
+      }
     }
   }
 </style>
