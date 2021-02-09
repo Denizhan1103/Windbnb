@@ -10,7 +10,10 @@
             <div class="search-bar__searching-quest-title">Guest</div>
             <div class="search-bar__searching-quest-add">Add guests</div>
           </div>
-          <div class="search-bar__searching-button">Search</div>
+          <div class="search-bar__searching-button">
+            <i class="search-bar__searching-button--icon fas fa-search"></i>
+            Search
+          </div>
         </div>
         <div class="search-bar__list">
             <div class="search-bar__list-location" :class="{'search-bar__list--visible':type == 'location'}">
@@ -42,7 +45,10 @@
             <div class="search-bar__list-empty"></div>
         </div>
         <div class="search-bar__mobile">
-          <div class="search-bar__searching-button search-bar__mobile-button">Search</div>
+          <div class="search-bar__searching-button search-bar__mobile-button">
+            <i class="search-bar__searching-button--icon fas fa-search"></i>
+            Search
+          </div>
         </div>
     </div>
     <div class="search-bar__shadow" @click="$emit('hide')"></div>
@@ -160,8 +166,14 @@ export default {
         font-weight: bold;
         font-size: 14px;
         flex: 1;
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--icon {
+          margin-right: 8px;
+          font-size: 14px;
+        }
       }
     }
     &__list {
