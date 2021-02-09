@@ -45,4 +45,15 @@ export default {
             justify-content: flex-end;
         }
     }
+
+@media (max-width: 576px) {
+    .header {
+        flex-direction: column;
+
+        &__logo {
+            margin: 10px 0;
+            width: 100%;
+        }
+    }
+}
 </style>
