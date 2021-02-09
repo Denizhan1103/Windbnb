@@ -41,6 +41,9 @@
             </div>
             <div class="search-bar__list-empty"></div>
         </div>
+        <div class="search-bar__mobile">
+          <div class="search-bar__searching-button search-bar__mobile-button">Search</div>
+        </div>
     </div>
     <div class="search-bar__shadow" @click="$emit('hide')"></div>
   </div>
@@ -237,8 +240,19 @@ export default {
   }
 }
 
+.search-bar__mobile {
+  display: none !important;
+}
+
+
 @media (max-width: 576px) {
-    .search-bar__searching {
+  .search-bar {
+
+    &__content {
+      height: 470px !important;
+    }
+
+    &__searching {
         flex-direction: column !important;
         height: auto;
 
@@ -251,7 +265,8 @@ export default {
         }
     }
 
-    .search-bar__list {
+    &__list {
+      min-height: 245px;
 
       &--visible {
         display: flex !important;
@@ -267,5 +282,17 @@ export default {
       }
     }
 
+    &__mobile {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+
+      &-button {
+        display: flex !important;
+        justify-content: center;
+      }
+    }
+  }
 }
 </style>
