@@ -13,13 +13,13 @@
           <div class="search-bar__searching-button">Search</div>
         </div>
         <div class="search-bar__list">
-            <div class="search-bar__list-location" :class="{'search-bar--hide' : type != 'location'}">
+            <div class="search-bar__list-location" :class="{'search-bar__list--visible':type == 'location'}">
                 <div class="search-bar__list-location-item">Helsinki, Finland</div>
                 <div class="search-bar__list-location-item">Turku, Finland</div>
                 <div class="search-bar__list-location-item">Oulu, Finland</div>
                 <div class="search-bar__list-location-item">Vaasa, Finland</div>
             </div>
-            <div class="search-bar__list-quest" :class="{'search-bar--hide' : type != 'quest'}">
+            <div class="search-bar__list-quest" :class="{'search-bar__list--visible':type == 'quest'}">
                 <div class="adults">
                     <div class="adults__title">Adults</div>
                     <div class="adults__subtitle">Ages 13 or above</div>
@@ -29,16 +29,17 @@
                         <div class="adults__number-plus">+</div>
                     </div>
                 </div>
-                <div class="childrens">
-                    <div class="childrens__title">Children</div>
-                    <div class="childrens__subtitle">Ages 2-12</div>
-                    <div class="childrens__number">
-                        <div class="childrens__number-minus">-</div>
-                        <div class="childrens__number-data">0</div>
-                        <div class="childrens__number-plus">+</div>
+                <div class="adults">
+                    <div class="adults__title">Children</div>
+                    <div class="adults__subtitle">Ages 2-12</div>
+                    <div class="adults__number">
+                        <div class="adults__number-minus">-</div>
+                        <div class="adults__number-data">0</div>
+                        <div class="adults__number-plus">+</div>
                     </div>
                 </div>
             </div>
+            <div class="search-bar__list-empty"></div>
         </div>
     </div>
     <div class="search-bar__shadow" @click="$emit('hide')"></div>
@@ -47,9 +48,9 @@
 
 <script>
 export default {
-  data: () => ({
-    location: 'type'
-  }),
+  data() {
+    return {type : 'location'} 
+  },
   props: {
     open: Boolean
   },
@@ -99,6 +100,7 @@ export default {
         padding: 0 10px;
         margin-right: 10px;
         height: 100%;
+        border: 1px solid transparent;
 
         &-title {
           font-weight: 800;
@@ -126,7 +128,7 @@ export default {
         margin-right: 10px;
         padding: 0 10px;
         border-radius: 16px;
-    
+        border: 1px solid transparent;
 
         &:hover {
             border: 1px solid #333333;
@@ -163,7 +165,7 @@ export default {
         display: flex;
         width: 100%;
         padding: 0 20px;
-      z-index: 100;
+        z-index: 100;
 
         &-location {
             flex: 1;
@@ -171,6 +173,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             padding: 20px 10px;
+            visibility: hidden;
 
             &-item {
                 font-size: 14px;
@@ -180,10 +183,57 @@ export default {
             }
         }
 
+        &--visible {
+          visibility: visible !important;
+        }
+
         &-quest {
             flex: 1;
+            visibility: hidden;
+        }
+
+        &-empty {
+          width: 130px;
         }
 
     }
+}
+
+.adults{
+  padding: 20px 0 0 0;
+
+  &__title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333333;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+
+  &__number {
+    display: flex;
+
+    &-minus,
+    &-plus {
+      border: 1px solid #828282;
+      box-sizing: border-box;
+      border-radius: 4px;
+      height: 24px;
+      width: 24px;
+      color: #828282;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &-data {
+      margin: 0 5px;
+    }
+  }
 }
 </style>
