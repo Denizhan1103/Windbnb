@@ -57,8 +57,7 @@ export default {
       align-items: center;
 
       &-icon {
-        height: 16px;
-        width: 16px;
+        font-size: 14px;
         margin-right: 3px;
         margin-bottom: 2px;
         color: #EB5757;
