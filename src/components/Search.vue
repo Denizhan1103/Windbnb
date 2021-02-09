@@ -236,4 +236,36 @@ export default {
     }
   }
 }
+
+@media (max-width: 576px) {
+    .search-bar__searching {
+        flex-direction: column !important;
+        height: auto;
+
+        &-loc {
+          margin-bottom: 20px;
+        }
+
+        &-button {
+            display: none;
+        }
+    }
+
+    .search-bar__list {
+
+      &--visible {
+        display: flex !important;
+      }
+
+      &-quest,
+      &-location {
+        display: none;
+      }
+
+      &-quest {
+        flex-direction: column;
+      }
+    }
+
+}
 </style>
