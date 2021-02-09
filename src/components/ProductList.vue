@@ -103,7 +103,7 @@ export default {
       display: grid;
       width: 100%;
       place-items: center;
-      gap: 20px;
+      gap: 10px 35px;
       //grid-template-areas: "list-item list-item list-item";
       grid-template-columns: repeat(3, minmax(300px, 1fr));
     }
