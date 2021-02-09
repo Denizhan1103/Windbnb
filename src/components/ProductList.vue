@@ -85,6 +85,7 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       &-title {
         font-weight: bold;
@@ -108,4 +109,16 @@ export default {
       grid-template-columns: repeat(3, minmax(300px, 1fr));
     }
   }
+
+@media (max-width: 1220px) {
+  .product-list__item {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+ }
+
+@media (max-width: 820px) {
+  .product-list__item {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+ }
 </style>
