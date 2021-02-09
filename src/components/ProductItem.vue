@@ -8,6 +8,7 @@
           <div class="data__up-construct">{{detail.construct}}</div>
         </div>
         <div class="data__up-item">
+          <i class="data__up-item-icon fas fa-star"></i>
           <div class="data__up-star">{{detail.star}}</div>
         </div>
       </div>
@@ -50,6 +51,19 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      &-icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 3px;
+        margin-bottom: 2px;
+        color: #EB5757;
+      }
+    }
 
     &-type {
         display: flex;
