@@ -39,6 +39,7 @@ export default {
       background-size: cover !important;
       border-radius: 24px;
       margin-bottom: 10px;
+      background-position: center;
     }
 
     &__data {
